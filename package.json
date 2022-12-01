@@ -1,0 +1,17 @@
+{
+  "name": "remark-tutrial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vitejs/plugin-react": "^2.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remark": "^14.0.2"
+  }
+}
