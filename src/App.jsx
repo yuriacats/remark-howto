@@ -1,20 +1,23 @@
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState, Fragment, createElement } from "react";
 import { unified } from "unified";
 import remarkParse from "remark-parse/lib";
 import remarkRehype from "remark-rehype";
-import rehypeStringify from "rehype-stringify/lib";
+import rehypeReact from "rehype-react/lib";
 
 
 function App() {
     const [testText, setTestText] = useState("")
     const [resultText, setResultText] = useState(Fragment)
     useEffect(() => {
-        const result = unified()
+        unified()
             .use(remarkParse)
             .use(remarkRehype)
-            .use(rehypeStringify)
+            .use(rehypeReact, { createElement })
             .process(testText)
-            .then((res) => setResultText(res.value))
+            .then((res) => {
+                console.log(res)
+                setResultText(res.result)
+            })
 
     }, [testText])
     return (
